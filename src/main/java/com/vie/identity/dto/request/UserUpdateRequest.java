@@ -1,4 +1,4 @@
-package com.vie.identity.dto;
+package com.vie.identity.dto.request;
 
 public class UserUpdateRequest {
     private String password;

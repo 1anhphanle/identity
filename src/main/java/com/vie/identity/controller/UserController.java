@@ -1,23 +1,29 @@
 package com.vie.identity.controller;
 
-import com.vie.identity.dto.UserCreationRequest;
-import com.vie.identity.dto.UserUpdateRequest;
+import com.vie.identity.dto.request.ApiResponse;
+import com.vie.identity.dto.request.UserCreationRequest;
+import com.vie.identity.dto.request.UserUpdateRequest;
 import com.vie.identity.entity.User;
 import com.vie.identity.service.UserService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
 import java.util.List;
 
 @RestController
 @RequestMapping("/users")
 public class UserController {
-
     @Autowired
     private UserService userService;
 
     @PostMapping
-    User createUser(@RequestBody UserCreationRequest request){
-        return userService.createUser(request);
+    ApiResponse<User> createUser(@RequestBody @Valid UserCreationRequest request){
+        ApiResponse<User> apiResponse = new ApiResponse<>();
+
+        apiResponse.setResult(userService.createUser(request));
+
+        return apiResponse;
     }
 
     @GetMapping
