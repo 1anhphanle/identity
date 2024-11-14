@@ -1,6 +1,6 @@
 package com.vie.identity.exception;
 
-import com.vie.identity.dto.request.ApiResponse;
+import com.vie.identity.dto.response.ApiResponse;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
